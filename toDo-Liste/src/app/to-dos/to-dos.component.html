@@ -1,0 +1,11 @@
+|<h2>{{(data.name | uppercase)}}</h2>
+<div><span>toDo: </span>{{data.text}}</div>
+<div><span>Done: </span>{{data.done}}</div>
+<div>
+    <label for="surname"> Ihr Vorname: </label>
+    <input  id="surname" [(ngModel)]= "surname" placeholder="Vorname">
+</div>
+<div>
+    <label for="lastname"> Ihr Nachname: </label>
+    <input  id="lastname" [(ngModel)]= "lastname" placeholder="Nachname">
+</div>

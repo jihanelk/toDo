@@ -1,0 +1,11 @@
+  let JSONString = '{"name": "' + this.surname + ' ' + this.lastname + '", "toDo": '+ this.toDoData + '}' ;
+  let jsObjectn:JSON = JSON.parse(JSONString)
+  console.log(JSONString)
+  this.toDos.push(jsObjectn);
+
+
+  simple Anordnung der Daten:
+
+  |<h2>{{(data.name | uppercase)}}</h2>
+<div><span>toDo: </span>{{data.text}}</div>
+<div><span>Done: </span>{{data.done}}</div>
