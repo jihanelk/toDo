@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestScheduler } from 'rxjs/testing';
 import { toDoData } from '../dataInterface';
+import {TESTDATA} from '../test-data';
 
 @Component({
   selector: 'app-to-dos',
@@ -14,7 +15,7 @@ export class ToDosComponent implements OnInit {
   text: string = '';
   toDos: JSON[] = [];
   data:toDoData = {
-name: 'testuser', text: 'abc', done: false
+id:100, name: 'testuser', text: 'abc', done: false
   }
   constructor() { }
   public getName() {
