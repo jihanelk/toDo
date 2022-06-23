@@ -1,7 +1,20 @@
 |<h2>{{(data.name | uppercase)}}</h2>
-<div><span>toDo: </span>{{data.text}}</div>
-<div><span>Done: </span>{{data.done}}</div>
-<div>
+<ul>
+    <li *ngFor="let  of testdata ">
+    <button [class.selected] = "id === selectedId" type="button" 
+(click)="onSelect(id)">      
+        <span>toDo:{{data.text}} </span>
+        <span>Done:{{data.done}} </span>
+        <span class="badge">{{id}}</span> <!-- toDoData.id == id-->>
+      </button>
+    </li>
+</ul>
+
+
+<div *ngIf="selectedId">
+    <h2>{{selectedId}} Details</h2>
+    <div>name: {{getName()}}</div>
+    
     <label for="surname"> Ihr Vorname: </label>
     <input  id="surname" [(ngModel)]= "surname" placeholder="Vorname">
 </div>
@@ -9,3 +22,5 @@
     <label for="lastname"> Ihr Nachname: </label>
     <input  id="lastname" [(ngModel)]= "lastname" placeholder="Nachname">
 </div>
+
+<app-task-detail [id]="selectedId"></app-task-detail>

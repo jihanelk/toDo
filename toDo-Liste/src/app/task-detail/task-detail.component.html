@@ -1,0 +1,11 @@
+<div *ngIf="selectedId">
+    <h2>{{selectedId}} Details</h2>
+    <div>name: {{getName()}}</div>
+    
+    <label for="surname"> Ihr Vorname: </label>
+    <input  id="surname" [(ngModel)]= "surname" placeholder="Vorname">
+</div>
+<div>
+    <label for="lastname"> Ihr Nachname: </label>
+    <input  id="lastname" [(ngModel)]= "lastname" placeholder="Nachname">
+</div>

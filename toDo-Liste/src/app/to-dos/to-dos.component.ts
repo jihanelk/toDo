@@ -3,6 +3,7 @@ import { TestScheduler } from 'rxjs/testing';
 import { toDoData } from '../dataInterface';
 import {TESTDATA} from '../test-data';
 
+
 @Component({
   selector: 'app-to-dos',
   templateUrl: './to-dos.component.html',
@@ -10,14 +11,22 @@ import {TESTDATA} from '../test-data';
 })
 
 export class ToDosComponent implements OnInit {
+  id: number = 0;
+  selectedId!: toDoData["idInt"];
   surname: string = '';
   lastname: string = '';
   text: string = '';
-  toDos: JSON[] = [];
+  toDos: JSON[] = []; 
+  testdata = TESTDATA;
   data:toDoData = {
-id:100, name: 'testuser', text: 'abc', done: false
-  }
+idInt:100, name: 'testuser', text: 'abc', done: false
+  };
+ 
   constructor() { }
+  onSelect(id: toDoData["idInt"]): void { //try put property as array
+    this.selectedId = id;
+  }
+  
   public getName() {
     let fullName = this.surname + ' ' + this.lastname;
     return fullName
