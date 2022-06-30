@@ -1,4 +1,4 @@
-  let JSONString = '{"name": "' + this.surname + ' ' + this.lastname + '", "toDo": '+ this.toDoData + '}' ;
+  let JSONString = '{"name": "' + this.surname + ' ' + this.lastname + '", "toDo": '+ this.dataInterface + '}' ;
   let jsObjectn:JSON = JSON.parse(JSONString)
   console.log(JSONString)
   this.toDos.push(jsObjectn);

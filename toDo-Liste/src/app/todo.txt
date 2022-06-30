@@ -1,0 +1,33 @@
+1. bei click auf todo task-detail anzeigen.
+2. bei checkbox click verschwinden vom task:
+   (möglich zu "done" oben in der leiste).
+   --von todoscomponent aus test-data ändern
+3. bei auswahl von routingmöglichkeiten bugs beheben.
+4. bei task-done.component.ts bugs fixen. !!!!!!!!!!!!
+5. doppelklick, um seite(komponente) wieder zu schließen.
+
+
+infos: 
+routen werden bei app.module.ts festgelegt
+die ganze website(index.html) wird von app.component.html verwaltet.
+
+routerlink zu task detail mit roblem bei to-dos-comp-html
+    [routerLink]="['/task-detail']"
+
+property binding
+
+bei parent html file:
+    <app-child [childproperty]="parentProperty"></app-child>
+    
+bei child component.ts:
+    @input() childproperty = backup data;
+
+    ngFor index i = index
+
+
+    <section class = "task-detail">
+<app-task-detail></app-task-detail>
+</section>
+
+to-dos.component.html  checkbox
+ [(ngModel)]= "task.done" (ngModelChange)="onChange(task.done, task.idInt)"

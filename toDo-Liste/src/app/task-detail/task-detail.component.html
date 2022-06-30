@@ -1,11 +1,9 @@
-<div *ngIf="selectedId">
-    <h2>{{selectedId}} Details</h2>
-    <div>name: {{getName()}}</div>
-    
-    <label for="surname"> Ihr Vorname: </label>
-    <input  id="surname" [(ngModel)]= "surname" placeholder="Vorname">
-</div>
-<div>
-    <label for="lastname"> Ihr Nachname: </label>
-    <input  id="lastname" [(ngModel)]= "lastname" placeholder="Nachname">
+<div class = "details">
+    <div *ngIf="task">
+        <label for="name"> Ihr Vorname: </label>
+        <input  id="name" [(ngModel)]= "task.name" placeholder="Name">  
+        <label for="text"> Ihr Text: </label>
+        <input  id="text" [(ngModel)]= "task.text" placeholder="Text">
+    </div>
+    <h1>task-detail works</h1>
 </div>

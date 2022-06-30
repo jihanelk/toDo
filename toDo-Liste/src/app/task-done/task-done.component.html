@@ -1,0 +1,7 @@
+<ul>
+    <tr *ngFor="let task of donetasks ">
+        <span><h3>toDo:</h3> {{task.text}} </span>
+        <span></span> <input type="checkbox"  [(ngModel)]= "task.done">
+        <br><br>
+    </tr>
+</ul>

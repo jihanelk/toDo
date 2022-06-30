@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { toDoData } from '../dataInterface';
+import { dataInterface } from '../dataInterface';
 import { ToDosComponent } from '../to-dos/to-dos.component';
+
+//Komponente, um bei Auswahl die Details des ausgewählten Tasks anzeigen zu lassen
 
 @Component({
   selector: 'app-task-detail',
@@ -9,8 +11,11 @@ import { ToDosComponent } from '../to-dos/to-dos.component';
 })
 
 export class TaskDetailComponent implements OnInit {
+task: dataInterface | undefined;
+toDoData: dataInterface[] = [];
 
- //@Input() idInt ?: toDoData;
+
+ //@Input() idInt ?: dataInterface;
  
   constructor() { }
   ngOnInit(): void {

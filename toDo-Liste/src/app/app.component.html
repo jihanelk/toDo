@@ -1,2 +1,27 @@
-<h1>{{title}}</h1>
-<app-to-dos></app-to-dos>
+<!--<h1>{{title}}</h1>-->
+<div id="navbartop">
+
+    <li id="header">
+        Navigation
+ </li>
+
+    <li><a routerLink="/app-to-dos">Home</a></li>
+    <li><a routerLink="/form">New Task</a></li>
+    <li><a routerLink="/task-done">Finished Tasks</a></li>
+
+    
+
+    <li style="float:right">
+        <a class="active" href="#about">
+        </a>
+    </li>
+
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+
+
+

@@ -1,8 +1,12 @@
-<form action="send.html" method="post">
-    <ul>
-        <li><label for="eingabe1"> Eingabefeld 1:<input id="eingabe1" type="text" />
-    </label></li><li><label for="eingabe2"> Eingabefeld 2:<input id="eingabe2" type="text" />
-    </label></li><li><label for="eingabe3"> Eingabefeld 3:<input id="eingabe3" type="text" />
-    </label></li>
-</ul>
-</form>
+<div class="centered">
+    <h2>Submit your information </h2>
+            <div>
+                <input id="eingabe1" [(ngModel)]= name type="text" placeholder="Name" /> 
+                <br><br>    
+                <input id="eingabe2" [(ngModel)]= text type="text" placeholder="Department" /> 
+                <br><br>
+                <input id="eingabe3" [(ngModel)]= department type="text" placeholder="Text" />
+                <br><br>
+                <input type="submit" (click)="postData()">
+            </div>              
+</div>

@@ -1,26 +1,40 @@
-|<h2>{{(data.name | uppercase)}}</h2>
-<ul>
-    <li *ngFor="let  of testdata ">
-    <button [class.selected] = "id === selectedId" type="button" 
-(click)="onSelect(id)">      
-        <span>toDo:{{data.text}} </span>
-        <span>Done:{{data.done}} </span>
-        <span class="badge">{{id}}</span> <!-- toDoData.id == id-->>
-      </button>
-    </li>
-</ul>
+<div class = "view flex">
+    <div class="todo">
+        <div>
+            <h2>ToDos</h2>
+        </div>
+        
+        <div class="task-list scrollable">
 
+            <ul>
+                <li class="todo-btn flex" *ngFor="let task of toDos" [class.selected]="task.idInt === selectedId" type="button" (click)="onSelect(id)">
+                    <div class="w-20 h-100 flex centered"><h3><i class="bi bi-exclamation-diamond-fill"></i></h3></div>
+                    <div class="w-60 h-100 flex centered">{{task.text}}</div>
+                    <div class="w-20 h-100 flex centered"><input type="checkbox" >
+                    </div>
+                    <!--<span>Done:{{task.done}} </span> -->
+                </li>
+            </ul>
 
-<div *ngIf="selectedId">
-    <h2>{{selectedId}} Details</h2>
-    <div>name: {{getName()}}</div>
+        </div>
+    </div>
+
+    <div class="todo-details">
+        <ng-container *ngIf="displayComponent">
+            <app-task-detail></app-task-detail>
+        </ng-container>
+    </div>
     
-    <label for="surname"> Ihr Vorname: </label>
-    <input  id="surname" [(ngModel)]= "surname" placeholder="Vorname">
-</div>
-<div>
-    <label for="lastname"> Ihr Nachname: </label>
-    <input  id="lastname" [(ngModel)]= "lastname" placeholder="Nachname">
-</div>
 
-<app-task-detail [id]="selectedId"></app-task-detail>
+    <!--<div *ngIf="selectedId">
+        <h2>{{selectedId}} Details</h2>
+        <div>name: {{name}}</div>
+        <div>department: {{department}}</div>
+        
+        <label for="surname"> Ihr Name: </label>
+        <input  id="surname" [(ngModel)]= "name" placeholder="Vorname">
+        <label for="lastname"> Ihre Abteilung: </label>
+        <input  id="lastname" [(ngModel)]= "department" placeholder="Nachname">
+    </div>-->
+
+</div>
