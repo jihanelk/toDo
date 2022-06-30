@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TestScheduler } from 'rxjs/testing';
-import { toDoData } from '../dataInterface';
-import {TESTDATA} from '../test-data';
-
+import { DataService } from '../data.service';
+import { dataInterface } from '../dataInterface';
+import { TESTDATA } from '../test-data';
 
 @Component({
   selector: 'app-to-dos',
@@ -12,30 +13,43 @@ import {TESTDATA} from '../test-data';
 
 export class ToDosComponent implements OnInit {
   id: number = 0;
-  selectedId!: toDoData["idInt"];
-  surname: string = '';
-  lastname: string = '';
+  selectedId!: dataInterface["idInt"];
+  name: string = '';
+  department: string = '';
   text: string = '';
-  toDos: JSON[] = []; 
+  toDos: dataInterface[] = [];
   testdata = TESTDATA;
-  data:toDoData = {
-idInt:100, name: 'testuser', text: 'abc', done: false
+  displayComponent:any = true;
+  data: dataInterface = {
+    idInt: 100, name: 'testuser', text: 'abc', department:'D345', done: false
   };
- 
-  constructor() { }
-  onSelect(id: toDoData["idInt"]): void { //try put property as array
+
+  constructor(private router: Router, private _dataService: DataService) {
+    this.getTasks();
+  }
+
+  onSelect(id: dataInterface["idInt"]): void { //try put property as array
+    this._dataService.onSelect()
     this.selectedId = id;
+    // this.router.navigate('/task-detail')
   }
-  
-  public getName() {
-    let fullName = this.surname + ' ' + this.lastname;
-    return fullName
+
+  public getTasks() {
+   this._dataService.getTasks(this.testdata, this.toDos);
   }
-  public saveData() {
-    //this.toDos.push(toDoData);
+
+  public onChange(newValue: boolean, id: number) {
+  this._dataService.onChange(this.testdata, newValue, id);
   }
+
+  public reloadCurrentPage() {
+    window.location.reload();
+  }
+
   ngOnInit(): void {
   }
 }
 
  //jsObjectn
+ 
+//<app-task-detail [id]="selectedId"></app-task-detail> 
